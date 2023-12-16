@@ -1,11 +1,15 @@
 const express = require("express");
+const connectDB = require("./config/db");
 const app = express();
 require("dotenv").config();
 
-app.get("/", (req, res) => {
-  res.send("hello from backend");
-});
+connectDB();
 
-app.listen("3001", (req, res) => {
-  console.log(`server started on port ${process.env.PORT}`);
+app.use(express.json());
+
+app.use("/api/workouts", require("./routes/workoutRoutes"));
+
+const PORT = process.env.PORT || "3001";
+app.listen(PORT, (req, res) => {
+  console.log(`server started on port ${PORT}`);
 });
