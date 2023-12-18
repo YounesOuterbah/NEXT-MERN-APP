@@ -1,3 +1,3 @@
 export default function Home() {
-  return <>Hello From NextJS</>;
+  return <div className="container">Hello From NextJS</div>;
 }
