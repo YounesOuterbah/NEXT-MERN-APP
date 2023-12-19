@@ -1,8 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
+import { TiDelete } from "react-icons/ti";
 
 export default function Home() {
   const [workouts, setWorkouts] = useState([]);
+
+  const deleteData = async (id) => {
+    const response = await fetch(`http://localhost:3001/api/workouts/${id}`, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+    console.log(data);
+    fetchData();
+  };
 
   const fetchData = async () => {
     const response = await fetch("http://localhost:3001/api/workouts");
@@ -22,6 +32,11 @@ export default function Home() {
                 <h3 className="text-red-400 font-bold text-2xl">{workout.title}</h3>
                 <h3>Workout Load: {workout.load}</h3>
                 <h3>Number Of Reps: {workout.reps}</h3>
+                <p>Created at: {workout.createdAt}</p>
+                <span>
+                  Click To Delete{" "}
+                  <TiDelete className="text-2xl" onClick={() => deleteData(workout._id)} />
+                </span>
               </div>
             ))}
           </div>
