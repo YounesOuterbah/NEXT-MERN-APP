@@ -11,7 +11,7 @@ export default function AddWorkout() {
 
     const workout = { title, load, reps };
 
-    const response = await fetch("http://localhost:3001/api/workouts", {
+    const response = await fetch("/api/workouts", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(workout),
