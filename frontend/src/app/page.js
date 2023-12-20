@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { TiDelete } from "react-icons/ti";
 
 export default function Home() {
   const [workouts, setWorkouts] = useState([]);
@@ -33,10 +32,7 @@ export default function Home() {
                 <h3>Workout Load: {workout.load}</h3>
                 <h3>Number Of Reps: {workout.reps}</h3>
                 <p>Created at: {workout.createdAt}</p>
-                <span>
-                  Click To Delete{" "}
-                  <TiDelete className="text-2xl" onClick={() => deleteData(workout._id)} />
-                </span>
+                <span onClick={() => deleteData(workout._id)}>Click To Delete</span>
               </div>
             ))}
           </div>
