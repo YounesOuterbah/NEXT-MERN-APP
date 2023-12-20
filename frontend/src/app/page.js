@@ -5,7 +5,7 @@ export default function Home() {
   const [workouts, setWorkouts] = useState([]);
 
   const deleteData = async (id) => {
-    const response = await fetch(`/api/workouts/${id}`, {
+    const response = await fetch(`http://localhost:3001/api/workouts/${id}`, {
       method: "DELETE",
     });
     const data = await response.json();
@@ -14,7 +14,7 @@ export default function Home() {
   };
 
   const fetchData = async () => {
-    const response = await fetch("/api/workouts");
+    const response = await fetch("http://localhost:3001/api/workouts");
     const data = await response.json();
     setWorkouts(data);
   };
