@@ -1,6 +1,5 @@
 const { Workout } = require("../models/workoutModel");
 const mongoose = require("mongoose");
-const asyncHandler = require("express-async-handler");
 
 const getWorkouts = async (req, res) => {
   const workout = await Workout.find({});
