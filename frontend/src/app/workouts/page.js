@@ -38,14 +38,17 @@ export default function AddWorkout({ fetchData }) {
         type="text"
         id="workoutName"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setTitle(e.target.value)} 
+        className="outline-none rounded pl-2"
       />
 
       <label htmlFor="workoutLoad">Load (in kg):</label>
-      <input type="text" id="workoutLoad" value={load} onChange={(e) => setLoad(e.target.value)} />
+      <input type="text" id="workoutLoad" value={load} onChange={(e) => setLoad(e.target.value)} 
+      className="outline-none rounded pl-2" />
 
       <label htmlFor="workoutReps">Number Of Reps:</label>
-      <input type="text" id="workoutReps" value={reps} onChange={(e) => setReps(e.target.value)} />
+      <input type="text" id="workoutReps" value={reps} onChange={(e) => setReps(e.target.value)} 
+      className="outline-none rounded pl-2" />
       <input
         type="submit"
         value="ADD WORKOUT"
