@@ -32,9 +32,12 @@ export default function Home() {
         <div className="container flex flex-col-reverse md:flex-row">
           <div className="box py-2 basis-9/12">
             {workouts.map((workout) => (
-              <div key={workout._id} className="card p-2 bg-white text-black m-2 rounded relative">
+              <div
+                key={workout._id}
+                className="card p-2 shadow-md bg-white text-black m-2 rounded relative"
+              >
                 <h3 className="text-green-600 font-bold text-2xl">{workout.title}</h3>
-                <h3 className="font-bold">Workout Load: {workout.load}</h3>
+                <h3 className="font-bold">Load (kg): {workout.load}</h3>
                 <h3 className="font-bold">Number Of Reps: {workout.reps}</h3>
                 <p className="font-bold">
                   Created: {formateDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
