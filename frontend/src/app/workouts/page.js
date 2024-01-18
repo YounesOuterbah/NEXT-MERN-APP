@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function AddWorkout() {
+export default function AddWorkout({ fetchData }) {
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
@@ -27,43 +27,30 @@ export default function AddWorkout() {
       setReps("");
       console.log("new workout added", data);
     }
+    fetchData();
   };
 
   return (
-    <div className="landing bg-green-400 h-screen pt-2">
-      <div className="container flex justify-center mt-20">
-        <form className="flex flex-col p-4 rounded bg-gray-300" onSubmit={handleSubmit}>
-          <p>ADD A NEW WORKOUT</p>
-          <label htmlFor="workoutName">Excercie Title:</label>
-          <input
-            type="text"
-            id="workoutName"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+    <form className="flex flex-col p-4 rounded py-2 basis-4/12" onSubmit={handleSubmit}>
+      <p className="font-bold">ADD A NEW WORKOUT</p>
+      <label htmlFor="workoutName">Excercie Title:</label>
+      <input
+        type="text"
+        id="workoutName"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
 
-          <label htmlFor="workoutLoad">Load (in kg):</label>
-          <input
-            type="text"
-            id="workoutLoad"
-            value={load}
-            onChange={(e) => setLoad(e.target.value)}
-          />
+      <label htmlFor="workoutLoad">Load (in kg):</label>
+      <input type="text" id="workoutLoad" value={load} onChange={(e) => setLoad(e.target.value)} />
 
-          <label htmlFor="workoutReps">Number Of Reps:</label>
-          <input
-            type="text"
-            id="workoutReps"
-            value={reps}
-            onChange={(e) => setReps(e.target.value)}
-          />
-          <input
-            type="submit"
-            value="ADD WORKOUT"
-            className="bg-white p-2 rounded mt-2 cursor-pointer"
-          />
-        </form>
-      </div>
-    </div>
+      <label htmlFor="workoutReps">Number Of Reps:</label>
+      <input type="text" id="workoutReps" value={reps} onChange={(e) => setReps(e.target.value)} />
+      <input
+        type="submit"
+        value="ADD WORKOUT"
+        className="bg-white p-2 rounded mt-2 cursor-pointer"
+      />
+    </form>
   );
 }
