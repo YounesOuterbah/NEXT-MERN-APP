@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <div className="landing">
         <ToastContainer theme="colored" />
-        <div className="container flex">
+        <div className="container flex flex-col-reverse md:flex-row">
           <div className="box py-2 basis-9/12">
             {workouts.map((workout) => (
               <div key={workout._id} className="card p-2 bg-white text-black m-2 rounded relative">
