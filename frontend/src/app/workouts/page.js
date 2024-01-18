@@ -49,7 +49,7 @@ export default function AddWorkout({ fetchData }) {
       <input
         type="submit"
         value="ADD WORKOUT"
-        className="bg-white p-2 rounded mt-2 cursor-pointer"
+        className="bg-green-600 text-white font-bold p-2 rounded mt-2 cursor-pointer"
       />
     </form>
   );
